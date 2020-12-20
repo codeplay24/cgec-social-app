@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    post
+  </title>
+  <style media="screen">
+    body{
+      background-size:cover;
+      font-family: Arial;
+    }
+    .headerClassUserName{
+      position: absolute;
+      left: 1190px;
+    }
+    .headerClassNewsFeedLink{
+      position: absolute;
+      left: 110px;
+      top: 30px;
+    }
+    .headerClass{
+      padding-bottom: 100px;
+      box-shadow: 2px 4px 5px 2px rgba(0,0,0,.3);
+      margin-bottom: 15px;
+    }
+    #mainPost{
+      padding-top: 150px;
+      padding-bottom: 100px;
+      padding-left: 30px;
+      padding-right: 30px;
+      border:  6px green solid;
+      border-radius: 25px;
+    }
+    textarea{
+      resize: none;
+      font-size: 12px;
+      box-sizing: border-box;
+      width: 50%;
+      height: 100px;
+      border: .1rem solid #ccc;
+    }
+
+
+    .np-button{
+      border-style: solid;
+      border-width: 0;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      line-height: normal;
+      margin: 10px 0;
+      position: relative;
+      text-decoration: none;
+      text-align: center;
+      border-radius: 2px!important;
+       display: inline-block;
+       padding-top: 9px;
+       padding-right: 20px;
+       padding-bottom: 9px;
+       padding-left: 20px;
+       font-size: 12px;
+       box-shadow: 0 1px 2px 0 rgba(0,0,0,.5);
+       color: #fff;
+       height: 37px;
+       width: 120px;
+       background-color: #4CAF50
+    }
+    .mainClass{
+      margin: 15px auto 0;
+      width: 963px;
+      box-shadow: 0 4px 5px 2px rgba(0,0,0,.3);
+    }
+    #formId{
+      padding-top: 30px;
+      margin-left: 60px;
+    }
+    #interestedButton{
+
+      margin-left: 60px;
+    }
+    #commentDiv{
+      padding-bottom: 20px;
+      border-top: 2px solid green;
+    }
+    .eachComment{
+      margin-left: 60px;
+      margin-right: 60px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid black;
+      background: rgb(237, 213, 232);
+      border-radius: 20px;
+      padding: 10px;
+    }
+    #deleteButton{
+      position: absolute;
+      right: 260px;
+      border-radius: 20px;
+      background-color: rgb(163, 183, 217);
+    }
+    A {
+      text-decoration: none;
+      color: #4CAF50;
+    }
+  </style>
+
+</head>
+<body>
+  {{>header}}
+  <main class="mainClass">
+    <div class="" id="mainPost"><h1 id='attachPost'>{{html}}</h1></div>
+    <button type="button" name="button" id="interestedButton" class="np-button">Interested</button>
+    {{#if ownPost}}
+      <button type="button" name="button" id="interestedButton" class="np-button" onclick="deletePost()">Delete Post</button>
+    {{/if}}
+    <br>
+    <div id="formId">
+      <textarea name="name" class="" id="commentTextArea"></textarea>
+      <br>
+      <input type="submit" name="" value="Comment" class="np-button" onclick="postComment()">
+    </div>
+    <div class="" id="commentDiv">
+        {{commentLoader commentsOnThisPost username}}
+    </div>
+    <script type="text/javascript" src='js/openPostFront.js'></script>
+  </main>
+</body>
+</html>

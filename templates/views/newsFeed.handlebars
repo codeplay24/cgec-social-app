@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    news feed
+  </title>
+  <style media="screen">
+    body{
+      background-size:cover;
+      font-family: Arial;
+
+    }
+    .headerClassUserName{
+      position: absolute;
+      left: 1190px;
+    }
+    .headerClass{
+      padding-bottom: 100px;
+      box-shadow: 2px 4px 5px 2px rgba(0,0,0,.3);
+      margin-bottom: 15px;
+    }
+    .headerClassNewsFeedLink{
+      position: absolute;
+      left: 110px;
+      top: 30px;
+    }
+    .allPost{
+      margin: 50px;
+      border: 4px solid black;
+      padding: 20px;
+      border-radius: 20px;
+      background: rgb(85, 176, 42);
+    }
+    .main{
+      margin: 15px auto 0;
+      width: 963px;
+      box-shadow: 2px 4px 5px 2px rgba(0,0,0,.3);
+    }
+    .wrap{
+      border-radius: 20px;
+      margin: auto;
+      width:  963px;
+      background: rgba(0, 0, 0, 0.8);
+      box-sizing: border-box;
+      padding: 40px;
+      color: #fff;
+      box-shadow: 2px 4px 5px 2px rgba(0,0,0,.3);
+    }
+    A {
+      text-decoration: none;
+      color: #4CAF50;
+    }
+
+
+    input[type=submit]{
+      width:170px;
+      box-sizing: border-box;
+      padding: 10px 0;
+      margin-top: 30px;
+      outline: none;
+      border:none;
+      background: #60adde;
+      opacity: 0.7;
+      border-radius: 20px;
+      font-size: 20px;
+      color: #fff;
+
+    }
+    .selectorClass{
+      padding: 8px 12px;
+      color: #333333;
+      background-color: #eeeeee;
+      border: 1px solid #dddddd;
+      cursor: pointer;
+      border-radius: 5px;
+      padding-right: 20px;
+      width: 400px;
+      margin: 6px;
+    }
+    .select:focus,
+    .select:hover{
+      outline: none;
+      border: 1px solid #bbbbbb;
+    }
+
+    h4{
+      color:white;
+    }
+
+    input[type=submit]:hover{
+      background: #003366;
+      opacity:0.7;
+    }
+  </style>
+
+</head>
+<body>
+  <script type="text/javascript">
+    console.log('ghghghghghghghghghghgh')
+  </script>
+  {{>header}}
+  <div class="wrap">
+    <h2>Post a request here</h2>
+    <form class="" action="/requestdone" method="post">
+      <select name="Departments" id="depts" class="selectorClass">
+        <option value="Comp.Sci">Computer science</option>
+        <option value="Electrical">Electrical</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Mechanical">Mechanical</option>
+        <option value="Civil">Civil</option>
+      </select>
+    </br>
+      <select name="Semester" id="sem" class="selectorClass">
+        <option value="sem1">Semester 1</option>
+        <option value="sem2">Semester 2</option>
+        <option value="sem3">Semester 3</option>
+        <option value="sem4">Semester 4</option>
+        <option value="sem5">Semester 5</option>
+        <option value="sem6">Semester 6</option>\
+        <option value="sem7">Semester 7</option>
+        <option value="sem8">Semester 8</option>
+      </select>
+    </br>
+      <select name="Subject" id="subjects" class="selectorClass">
+        <option value="sem8">Not selected</option>
+      </select>
+      <br>
+      <input type="submit" value="submit" required>
+    </form>
+  </div>
+
+  <div class="main">
+    <div id="post1" class="allPost" >
+    </div>
+    <div id="post2" class="allPost" >
+    </div>
+    <div id="post3" class="allPost" >
+    </div>
+    <div id="post4" class="allPost" >
+    </div>
+    <div id="post5" class="allPost" >
+    </div>
+    <div id="post6" class="allPost" >
+    </div>
+    <div id="post7" class="allPost" >
+    </div>
+    <div id="post8" class="allPost" >
+    </div>
+    <div id="post9" class="allPost" >
+    </div>
+    <div id="post10" class="allPost" >
+    </div>
+    <button type="button" name="button" id="frontClicked">next</button>
+    <button type="button" name="button" id='backClicked'>previous</button>
+    <script type="text/javascript" src="js/newsFeedFront.js"></script>
+  </div>
+</body>
+</html>
