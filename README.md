@@ -14,7 +14,18 @@ It will also have a request maker on the top of the page.
 
 [A home page photo]
 
-Clicking on a post, the post will be loaded. and details such as people interested in it, comments on the post will also appear.
+Clicking on a post, the post will be loaded. and details such as people interested in it, comments on the post will also appear. Only for the post owner the delete post button will be seen.
 
 [A photo of a opened post]
 
+A text area for writing down a comment and clicking the comment button will add the comment to this post. Again, owner of the comment will have the access to delete the comment. 
+
+[A photo of the comment test area and comments]
+
+
+
+## Features to be added
+
+1. A profile page for each user, with all the details (privacy options will be added later) given during sign-up and a user can also add the social links(linked in, github, facebook, twitter). 
+2. Image uploading options for user to upload images.
+3. A chat box for users to chat.
