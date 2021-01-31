@@ -24,6 +24,8 @@ const viewsPath =path.join(__dirname, '../templates/views')
 const pathExec = path.join(__dirname, '../public')
 const partialsPath = path.join(__dirname, '../templates/partials')
 
+const port = process.env.PORT || 5000
+
 const hbs = exphbs.create({
   extname: "handlebars",
   defaultLayout: false,
@@ -111,7 +113,7 @@ app.post('/submit', async (req,res)=>{
       service:'gmail',
       auth:{
         user:'rajdeepsarkar1d@gmail.com',
-        pass:'official44'
+        pass:process.env.PASSWORD
       }
     })
     var mailOptions = {
@@ -224,9 +226,7 @@ app.get('/newsfeed', auth, (req,res)=>{
   res.render('newsFeed', {username:req.user_name})
 })
 
-app.post('/postComment',auth, async(req,res)=>{
 
-})
 
 app.post('/saveComment', auth, async(req,res)=>{
   const comment = new commentModel({
@@ -247,8 +247,28 @@ app.post('/try', async(req,res)=>{
   try{
     const sem = req.body.sem
     const dept = req.body.dept
-    const result = await compSciModel.findOne({semester: sem})
-    res.status(200).send(result.subjects)
+    if(dept==='Comp.Sci'){
+      const result = await compSciModel.findOne({semester: sem})
+      console.log(result);
+      res.status(200).send(result.subjects)
+    }
+    if(dept==='Electronics'){
+      const result = await electronicsModel.findOne({semester: sem})
+      res.status(200).send(result.subjects)
+    }
+    if(dept==='Mechanical'){
+      const result = await mechanicalModel.findOne({semester: sem})
+      res.status(200).send(result.subjects)
+    }
+    if(dept==='Civil'){
+      const result = await civilModel.findOne({semester: sem})
+      res.status(200).send(result.subjects)
+    }
+    if(dept==='Electrical'){
+      const result = await electricalModel.findOne({semester: sem})
+      res.status(200).send(result.subjects)
+    }
+
   }catch(e){
     res.status(404).send()
   }
@@ -325,7 +345,66 @@ app.post('/deleteComment', auth, async(req,res)=>{
   }
 })
 
+app.get('/profile',auth, async(req,res)=>{
+  const username = req.user_name
+  const user = await studentModel.findOne({user_name:username}).lean()
+  const exp = user
+  const posts = await postModel.find({user_name:username}).lean()
+  console.log(posts);
+  res.render('profiles', {
+    username:username,
+    user,
+    posts:posts.reverse()
+  })
+
+})
+
+app.listen(port, ()=>{
+  console.log('site is up');
+})
 
 
-app.listen(5000)
-console.log('The site is up for real')
+///// admin codes to be done here
+
+app.get('/adminSignin', (req,res)=>{
+  res.render('adminStuff')
+})
+app.post('/admin', async(req,res)=>{
+  if(req.body.dept==='comp'){
+    console.log('ghty');
+    const obj = new compSciModel({
+      semester:req.body.sem,
+      subjects:req.body.sub
+    })
+    await obj.save()
+  }
+  if(req.body.dept==='mech'){
+    const obj = new mechanicalModel({
+      semester:req.body.sem,
+      subjects:req.body.sub
+    })
+    await obj.save()
+  }
+  if(req.body.dept==='civil'){
+    const obj = new civilModel({
+      semester:req.body.sem,
+      Subject:req.body.sub
+    })
+    await obj.save()
+  }
+  if(req.body.dept==='electronics'){
+    const obj = new electronicsModel({
+      semester:req.body.sem,
+      subjects:req.body.sub
+    })
+    await obj.save()
+  }
+  if(req.body.dept==='electrical'){
+    const obj = new electricalModel({
+      semester:req.body.sem,
+      subjects:req.body.sub
+    })
+    await obj.save()
+  }
+  res.send('done')
+})

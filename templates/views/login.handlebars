@@ -1,19 +1,46 @@
 <!DOCTYPE>
 <html>
 <head>
-  <title>
-    Sign-Up form
-  </title>
-  <link rel="stylesheet" href="css/style.css"
+  <title>Log-in form</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style media="screen">
+    /* footer styles */
+    .footer{
+      padding-bottom: 10px;
+      margin: 30px;
+      border-top: 2px solid yellow;
+    }
+    .statement{
+      position: absolute;
+      left:200px;
+      color: rgb(7, 83, 245);
+      margin-top: 20px;
+    }
+    .links{
+      position: absolute;
+      left:550px;
+      down:-10px;
+    }
+    #githublink{
+      color: black;
+    }
+    #linkedinlink{
+      color: rgb(57, 132, 179);
+    }
+    #emoji{
+      color: red;
+    }
+  </style>
 </head>
 <body>
   <div class="wrap">
-    <h2>Sign up here</h2>
+    <h2>Log-in here</h2>
     <form class="" action="/login" method="post">
       <input type="text" placeholder="User Name" name="user_name" value="" id="" required>
       <input type="password" placeholder="password" name="password" value="" id="" required>
       <input type="submit"  value="log in">
     </form>
   </div>
+  {{>footers}}
 </body>
 </html>

@@ -1,6 +1,6 @@
 const table = document.getElementById('newsFeedTable')
 const xhr = new XMLHttpRequest()
-xhr.open('GET', 'http://localhost:5000/getpost', true)
+xhr.open('GET', '/getpost', true)
 xhr.send()
 xhr.onload = ()=>{
   if(xhr.status===200){
@@ -50,7 +50,7 @@ const iterator = (start, postArray)=>{
       break;
     }
     var target = document.getElementById(`post${j+1}`)
-    var html = `<a href='http://localhost:5000/openPost?_id=${postArray[i]._id}'><h4>${postArray[i].user_name} from ${postArray[i].depertment} requested a book for ${postArray[i].semester} on ${postArray[i].subject}</h4></a>`
+    var html = `<a href='/openPost?_id=${postArray[i]._id}'><h4>${postArray[i].user_name} from ${postArray[i].depertment} requested a book for ${postArray[i].semester} on ${postArray[i].subject}</h4></a>`
     target.innerHTML = html
     j=j+1;
   }
@@ -65,7 +65,7 @@ const openPost = (postId)=>{
   let html = element.innerHTML
   const id = idScrapper(html)
   const xhr = new XMLHttpRequest()
-  xhr.open('POST', 'http://localhost:5000/openPost', true)
+  xhr.open('POST', '/openPost', true)
   xhr.setRequestHeader('Content-Type', 'application/json')
   xhr.send(JSON.stringify({postId:id}))
   //console.log(idScrapper(html).trim())
@@ -91,7 +91,7 @@ const idScrapper = (html)=>{
 
 
 const logoutClick = ()=>{
-  xhr.open('GET', 'http://localhost:5000/logout', true)
+  xhr.open('GET', '/logout', true)
   xhr.send()
   xhr.onload = ()=>{
     if(xhr.status===200){
@@ -113,7 +113,7 @@ function m2(){
   console.log(f1)
   if(f1%2===0){
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost:5000/try', true)
+    xhr.open('POST', '/try', true)
     const searchQueries = {
       dept: optionTag.value,
       sem: optionTag2.value

@@ -8,7 +8,6 @@
     body{
       background-size:cover;
       font-family: Arial;
-
     }
     .headerClassUserName{
       position: absolute;
@@ -51,6 +50,9 @@
       color: #4CAF50;
     }
 
+    #usernameATag{
+      color: black;
+    }
 
     input[type=submit]{
       width:170px;
@@ -91,13 +93,40 @@
       background: #003366;
       opacity:0.7;
     }
+
+    /* footer styles */
+    .footer{
+      padding-bottom: 10px;
+      margin: 30px;
+      border-top: 2px solid yellow;
+    }
+    .statement{
+      position: absolute;
+      left:200px;
+      color: rgb(7, 83, 245);
+      margin-top: 20px;
+    }
+    .links{
+      position: absolute;
+      left:550px;
+      down:-10px;
+    }
+    #githublink{
+      color: black;
+    }
+    #linkedinlink{
+      color: rgb(57, 132, 179);
+    }
+    #emoji{
+      color: red;
+    }
+    .statementSeg{
+      color: rgb(7, 83, 245);
+    }
   </style>
 
 </head>
 <body>
-  <script type="text/javascript">
-    console.log('ghghghghghghghghghghgh')
-  </script>
   {{>header}}
   <div class="wrap">
     <h2>Post a request here</h2>
@@ -154,5 +183,6 @@
     <button type="button" name="button" id='backClicked'>previous</button>
     <script type="text/javascript" src="js/newsFeedFront.js"></script>
   </div>
+  {{>footers}}
 </body>
 </html>

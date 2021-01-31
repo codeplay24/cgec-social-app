@@ -1,10 +1,21 @@
-// const compSciModel = require('../models/compSciModel.js')
-// const civilModel = require('../models/civilModel.js')
-// const electricalModel = require('../models/electricalModel.js')
-// const mechanicalModel = require('../models/mechanicalModel.js')
-// const electronicsModel = require('../models/electronicsModel.js')
-// const mongoose = require('mongoose')
-// require('../database/mongodb.js')
+const compSciModel = require('../models/compSciModel.js')
+const civilModel = require('../models/civilModel.js')
+const electricalModel = require('../models/electricalModel.js')
+const mechanicalModel = require('../models/mechanicalModel.js')
+const electronicsModel = require('../models/electronicsModel.js')
+const mongoose = require('mongoose')
+require('../database/mongodb.js')
+
+const obj = new compSciModel({
+  semester:'sem8',
+  subjects:'Signal and Networks ,Cryptography and Network Security ,Natural Language Processing,Web and Internet Technology,Internet of Things,Big Data Analytics,Cyber Law and Ethics,Mobile Computing,Robotics,Soft Skill & Interpersonal Communication,Micro-electronics and VLSI Design,Economic Policies in India    '
+})
+
+obj.save()
+console.log('done');
+
+
+
 //
 //
 //
@@ -125,25 +136,25 @@
 //
 // app.listen(5000)
 
-
-const express = require('express')
-const app = express()
-const exphbs = require('express-handlebars')
-
-app.engine('handlebars', exphbs({
-    extname: "handlebars",
-    defaultLayout: false,
-  }))
-app.set('view engine', 'handlebars')
-
-app.get('/', (req,res)=>{
-  res.render('index')
-})
-
-app.get('/about', (req,res)=>{
-  res.render('about')
-})
-
-app.listen(5000, ()=>{
-  console.log('running')
-})
+//
+// const express = require('express')
+// const app = express()
+// const exphbs = require('express-handlebars')
+//
+// app.engine('handlebars', exphbs({
+//     extname: "handlebars",
+//     defaultLayout: false,
+//   }))
+// app.set('view engine', 'handlebars')
+//
+// app.get('/', (req,res)=>{
+//   res.render('index')
+// })
+//
+// app.get('/about', (req,res)=>{
+//   res.render('about')
+// })
+//
+// app.listen(5000, ()=>{
+//   console.log('running')
+// })

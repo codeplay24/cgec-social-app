@@ -3,7 +3,7 @@ const postComment = ()=>{
   const commentText = commentTextHtml.value
   const postId = location.search.split('=')[1]
   const xhr = new XMLHttpRequest()
-  xhr.open('POST', 'http://localhost:5000/saveComment', true)
+  xhr.open('POST', '/saveComment', true)
   xhr.setRequestHeader('Content-Type', 'application/json')
   xhr.send(JSON.stringify({commentText, postId}))
   xhr.onload = ()=>{
@@ -16,7 +16,7 @@ const postComment = ()=>{
 
 const logoutClick = ()=>{
   const xhr = new XMLHttpRequest()
-  xhr.open('GET', 'http://localhost:5000/logout', true)
+  xhr.open('GET', '/logout', true)
   xhr.send()
   xhr.onload = ()=>{
     if(xhr.status===200){
@@ -28,7 +28,7 @@ const logoutClick = ()=>{
 
 const deletePost = ()=>{
   const xhr = new XMLHttpRequest()
-  xhr.open('POST', 'http://localhost:5000/deletePost', true)
+  xhr.open('POST', '/deletePost', true)
   xhr.setRequestHeader('Content-Type','application/json')
   var postId = location.search.split('=')[1]
   xhr.send(JSON.stringify({postId:postId}))
@@ -41,7 +41,7 @@ const deletePost = ()=>{
 
 const deleteComment = (commentId)=>{
   const xhr =new XMLHttpRequest()
-  xhr.open('POST', 'http://localhost:5000/deleteComment', true)
+  xhr.open('POST', '/deleteComment', true)
   xhr.setRequestHeader('Content-Type', 'application/json')
   xhr.send(JSON.stringify({commentId}))
   xhr.onload = function(){
