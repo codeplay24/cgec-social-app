@@ -136,6 +136,7 @@ app.post('/submit', async (req,res)=>{
 })
 
 app.get('/afterSignUp', (req,res)=>{
+  console.log('in the after sign up page');
   res.render('afterSignUp')
 })
 
