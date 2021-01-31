@@ -248,7 +248,9 @@ app.post('/try', async(req,res)=>{
   try{
     const sem = req.body.sem
     const dept = req.body.dept
+    console.log('before the if statement starts');
     if(dept==='Comp.Sci'){
+      console.log('inside the if statement of comp science');
       const result = await compSciModel.findOne({semester: sem})
       console.log(result);
       res.status(200).send(result.subjects)
