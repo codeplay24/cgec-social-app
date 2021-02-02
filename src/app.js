@@ -113,7 +113,7 @@ app.post('/submit', async (req,res)=>{
       service:'gmail',
       auth:{
         user:'rajdeepsarkar1d@gmail.com',
-        pass:process.env.PASSWORD
+        pass:process.env.PASSWORD || 'official2048'
       }
     })
     var mailOptions = {
@@ -172,7 +172,6 @@ app.post('/login', auth,async(req,res)=>{
     const username = req.body.user_name
     const password = req.body.password
     const user = await studentModel.findOne({user_name:username})
-
     if(!user){
       throw new Error('user not found')
     }
@@ -182,6 +181,11 @@ app.post('/login', auth,async(req,res)=>{
       throw new Error('Password does not match the username')
     }
     await user.generateToken(req)
+    if(req.token===null){
+      console.log('here we go again');
+      res.render('afterSignup')
+      return
+    }
     res.status(200).cookie('jwt', req.token, {
       expires: new Date(new Date().getTime() + 3000 * 1000000),
       sameSite:'strict',
@@ -304,7 +308,7 @@ app.get('/openPost',auth, async(req,res)=>{
     }
     const html = `${post.user_name} from ${post.depertment} requested a book for ${post.semester} on ${post.subject}.`
     var commentsOnThisPost = await commentModel.find({postId:post._id})
-    commentsOnThisPost.reverse()
+    //commentsOnThisPost.reverse()
     let ownPost = false
     if(req.user_name===post.user_name){
       ownPost = true

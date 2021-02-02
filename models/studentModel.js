@@ -46,6 +46,11 @@ const studentSchema = new mongoose.Schema({
 })
 
 studentSchema.methods.generateToken = async function(req){
+
+  if(!this.isVerified){
+    req.token = null
+    return
+  }
   const username = this.user_name
   const token =await jwt.sign({user_name:username}, 'secretKey')
   this.tokens = this.tokens.concat({token})
