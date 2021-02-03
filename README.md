@@ -26,8 +26,7 @@ A text area for writing down a comment and clicking the comment button will add 
 
 <img src="public/img/openPost2.png" width="700">
 
-Clicking on the username(right above the logout button) the profile page for the user will load up. Where all the details about the user will be found. and the made the user
-will load up.
+Clicking on the username(right above the logout button) the profile page for the user will load up. Where all the details about the user will be found. and the posts made by the user will load up.
 
 <img src="public/img/profileView.png" width="700">
 
